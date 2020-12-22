@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Stylish&display=swap');
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body{
+  background: #2E8973;
+  font-family: 'Stylish','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container{
+  width: 70%;
+  margin: 50px auto;
+  position: relative;
+  /* opacity: 0.4; */
+}
+
+.container .qn{
+  text-align: center;
+}
+
+.container .scores{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.scores .score{
+  display: flex;
+  justify-content: center;
+  background-color: #0c7057;
+  border-radius: 50%;
+  padding: 10px 15px;
+  color: #fff;
+}
+
+.question{
+  position: absolute;
+  width: 100%;
+  background: #0c7057;
+  top: 100px;
+  height: 20vh;
+  padding: 20px;
+  color:#fff;
+  font-size: 22px;
+}
+
+ .tag{
+  position: absolute;
+  bottom: -20px;
+  left: 48%;
+  background-color: #034e3b;
+  padding: 10px 7px;
+  border-radius: 50%;
+}
+
+input[type="radio"]{
+  display: none;
+}
+
+.options{
+  position: absolute;
+  top: 45vh;
+  left: 0;
+  width: 100%;
+}
+
+.option{
+  background: #fff;
+  border: 1px solid #0c7057;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+}
+
+.select{
+  background: #42a5f5;
+  border: 2px solid #116bb4;
+}
+
+.correct{
+  background: #0da383;
+  border: 2px solid #036651;
+  color: #fff;
+}
+
+.wrong{
+  background: #e53935;
+  border: 2px solid #960d0b;
+  color: #fff;
+}
+
+.option label{
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.check,.gameOver{
+  padding: 10px 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: #0c7057;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.check{
+  position: absolute;
+  top: 85vh;
+  left: 30%;
+}
+
+.check:hover,.gameOver:hover{
+  background: #045541;
+}
+
+.gameOver{
+  position: absolute;
+  top: 85vh;
+  left: 45%;
+  display: none;
+}
+
+.next{
+  padding: 10px 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;  
+  background: #fff;
+  color: #0c7057;
+  border: 1px solid #0c7057;
+  position: absolute;
+  top: 85vh;
+  left: 55%;
+  pointer-events: none;
+}
+
+/* gif */
+.loader{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: none;
+}
+
+@media only screen and (max-width:768px){
+  .options{
+    position: absolute;
+    top: 40vh;
+    left: 0;
+  }  
+  
+  .check{
+    position: absolute;
+    top: 70vh;
+    left: 20%;
+  } 
+  
+  .next{
+    position: absolute;
+    top: 70vh;
+    left: 60%;
+  } 
+
+  .gameOver{
+    position: absolute;
+    top: 70vh;
+    left: 42%;
+  } 
+}
+
+@media only screen and (max-width:540px){
+
+  .container{
+    width: 90%;
+  }
+  .check{
+    padding: 6px 15px;
+    position: absolute;
+    top: 70vh;
+    left: 14%;
+  } 
+  
+  .next{
+    padding: 6px 15px;
+    position: absolute;
+    top: 70vh;
+    left: 55%;
+  } 
+
+  .gameOver{
+    padding: 6px 15px;
+    position: absolute;
+    top: 70vh;
+    left: 40%;
+  }
+
+  .tag{
+    position: absolute;
+    bottom: -20px;
+    left: 45%;
+  } 
+}
+
+@media only screen and (max-width:425px){
+  .check{
+    position: absolute;
+    top: 70vh;
+    left: 7%;
+  }
+  .question{
+    height: 25vh;
+  }
+  .options{
+    position: absolute;
+    top: 45vh;
+    left: 0;
+  }  
+  .check{
+    top: 87vh;
+  } 
+  
+  .next{
+    top: 87vh;
+  } 
+
+  .gameOver{
+    top: 87vh;
+    left: 37%;
+  }
+}
+
+@media only screen and (max-width:380px){
+  .container{
+    margin-top: 20px;
+  }
+  .check,.next,.gameOver{
+    top: 90vh;
+  }
+}

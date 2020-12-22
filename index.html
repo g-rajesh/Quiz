@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" type="text/css">
+  <title>Quiz Game</title>
+</head>
+<body>
+  <div class="container">
+    <h2>Quiz Game</h2>
+    <form>
+      <input type="text" id="name" autocomplete="off" placeholder="Your name please..." required>
+    </form>
+    <div class="display">
+      <h2>______, click the play button to start!</h2>
+    </div>
+    <a class="next" href="game.html">Play</a>
+  </div>
+
+  <script>
+    document.querySelector('#name').addEventListener('focusout',(e)=>{
+
+      let name = document.querySelector('#name');
+
+      let score = 0;
+
+      if(!(name.value ==='')){
+        localStorage.setItem('name',JSON.stringify(name.value));
+        localStorage.setItem('cScore',JSON.stringify(score));
+        localStorage.setItem('hScore',JSON.stringify(score));
+        document.querySelector('.display').innerHTML = `
+        <h2>${name.value}, click the play button to start the game</h2>
+        `;
+        document.querySelector('.next').style.pointerEvents = "auto";
+      }
+
+      name.value = '';
+
+      e.preventDefault();
+    })
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play Again</title>
+  <link rel="stylesheet" href="playAgain.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Player Name<span class="name"></span></h2>
+    <h2>High Score<span class="hScore"></span></h2>
+    <h2>Current Score<span class="cScore"></span></h2>
+    <div class="btns">
+      <a href="game.html"><button class="playAgain">Play Again</button></a>
+      <a href="index.html"><button class="back">Back To Home</button></a>
+    </div>
+  </div>
+  <div class="loader">
+    <img src="giphy.gif" alt="">
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded',(e)=>{
+      let name = JSON.parse(localStorage.getItem('name'));
+      document.querySelector('.name').innerHTML = name;
+
+      let cScore = JSON.parse(localStorage.getItem('cScore'));
+      let hScore = JSON.parse(localStorage.getItem('hScore'));
+
+      if(parseInt(cScore) > parseInt(hScore)){
+        localStorage.setItem('hScore',JSON.stringify(cScore));
+        document.querySelector('.hScore').innerHTML = cScore;  
+      }else{
+        document.querySelector('.hScore').innerHTML = hScore;
+      }
+
+      document.querySelector('.cScore').innerHTML = cScore;
+    })
+
+    document.querySelector('.container').style.opacity = '0.1';
+    document.querySelector('.loader').style.display = 'block';
+
+    setTimeout(()=>{
+      document.querySelector('.container').style.opacity = '1';
+      document.querySelector('.loader').style.display = 'none';
+    },3000);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Stylish&display=swap');
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body{
+  background: #2E8973;
+  font-family: 'Stylish','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container h2{
+  font-size: 50px;
+  color: #fff;
+  margin-bottom: 22px;
+}
+
+form input{
+  display: block;
+}
+
+input{
+  border: none;
+  outline: none;
+  width: 250px;
+  padding: 10px;
+  border:5px solid #0c7057;
+}
+
+.display{
+  margin: 25px 0;
+}
+
+.display h2{
+  margin: 0 30px;
+  text-align: center;
+}
+
+.next{
+  margin-top: 50px;
+  background: #0c7057;
+  padding: 30px 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.next{
+  text-decoration: none;
+  color: #fff;
+}
+
+/* media queries */
+@media only screen and (max-width:540px){
+  .container{
+    margin-top: 50%;
+  }
+  .display h2{
+    font-size: 32px;
+    margin: 0 35px;
+  }
+  .display{
+    margin-bottom: 15px;
+  }
+
+  .next{
+    margin-top: 35px;
+  }
+  
+}
+
+@media only screen and (max-width:380px){
+  .display h2{
+    font-size: 28px;
+  }
+  
+}
