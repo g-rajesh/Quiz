@@ -5,18 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game Play</title>
   <link rel="stylesheet" href="game.css">
+
 </head>
 <body>
-   
-  <div class="container">
 
-    <h2 class="qn">Question No:<span class="number"></span></h2>
-    <h3 class="scores">Score <span class="score"></span></h3>
+  <div class="nameDisplay">
+    <div class="back">
+      <a href="index.html"><img src="back-button.png" alt=""></a>
+    </div>
+    <div class="name"></div>
+    <div class="score"></div>
+  </div>
+
+  <div class="container">
     <p class="question"></p>
     <div class="options"></div>
-    <button class="check">Check Answer</button>
-    <a href="playAgain.html"><button class="gameOver">Game Over</button></a>
-    <button class="next">Next Question</button>
+    <div class="btns">
+      <button class="check clicked">Check Answer</button>
+      <button class="next">Next Question</button>
+    </div>
+    <div class="gamefinish">
+      <a href="playAgain.html"><button class="gameOver">Game Over</button></a>
+    </div>
 
   </div>
 
@@ -24,12 +34,7 @@
     <img src="giphy.gif" alt="">
   </div>
 
-
   <script src="game.js"></script>
 
 </body>
 </html>
-
-<!-- 
-
- -->

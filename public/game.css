@@ -6,140 +6,173 @@
 }
 
 body{
-  background: #2E8973;
   font-family: 'Stylish','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a{
+  text-decoration: none;
+}
+
+.nameDisplay{
+  width: 100%;
+  height: 10vh;
+  background: #2E8973;
+  position: relative;
+}
+
+.back{
+  width: 100%;
+  height: 10vh;
+}
+
+.nameDisplay .back a{
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 30px;
+}
+
+.back a img{
+  width: 30px;
+  height: 30px;
+}
+
+.nameDisplay .name{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nameDisplay .score{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score span{
+  color: #fff;
+  font-size: 22px;
 }
 
 .container{
   width: 70%;
   margin: 50px auto;
-  position: relative;
-  /* opacity: 0.4; */
 }
 
-.container .qn{
+
+.question{
+  width: 100%;
+  height: 25vh;
+  background: #f3d477;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  color: #000;
+  position: relative;
+  padding: 15px;
   text-align: center;
 }
 
-.container .scores{
-  display: flex;
-  flex-direction: column;
+.question .tag{
   position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.scores .score{
-  display: flex;
-  justify-content: center;
-  background-color: #0c7057;
-  border-radius: 50%;
-  padding: 10px 15px;
-  color: #fff;
-}
-
-.question{
-  position: absolute;
-  width: 100%;
-  background: #0c7057;
-  top: 100px;
-  height: 20vh;
-  padding: 20px;
-  color:#fff;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
   font-size: 22px;
-}
-
- .tag{
-  position: absolute;
-  bottom: -20px;
-  left: 48%;
-  background-color: #034e3b;
-  padding: 10px 7px;
-  border-radius: 50%;
-}
-
-input[type="radio"]{
-  display: none;
+  padding: 0 8px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 1px #000;
 }
 
 .options{
-  position: absolute;
-  top: 45vh;
-  left: 0;
+  margin: 20px 0;
+}
+
+.option input[type="radio"]{
+  display: none;
+}
+
+.option label{
   width: 100%;
+  border: 1px solid #2E8973;
+  color: #2E8973;
+  padding: 5px 20px;
+  display: block;
+  font-size: 22px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.option{
-  background: #fff;
-  border: 1px solid #0c7057;
-  padding: 10px 15px;
-  margin-bottom: 15px;
-}
-
-.select{
+.select label{
   background: #42a5f5;
   border: 2px solid #116bb4;
+  color: #fff;
 }
 
-.correct{
+.correct label{
   background: #0da383;
   border: 2px solid #036651;
   color: #fff;
 }
 
-.wrong{
+.wrong label{
   background: #e53935;
   border: 2px solid #960d0b;
   color: #fff;
 }
 
-.option label{
-  font-size: 22px;
-  cursor: pointer;
+.btns{
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.check,.gameOver{
-  padding: 10px 25px;
+.check,.next{
+  cursor: pointer;
   border: none;
   outline: none;
-  cursor: pointer;
-  background: #0c7057;
+  border: 2px solid #2e8973;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background: #fff;
+  color: #2E8973;
+}
+
+.clicked{
+  background: #2E8973;
   color: #fff;
-  border: 1px solid #fff;
 }
 
-.check{
-  position: absolute;
-  top: 85vh;
-  left: 30%;
-}
-
-.check:hover,.gameOver:hover{
-  background: #045541;
+.gamefinish{
+  display: flex;
+  justify-content: center;
 }
 
 .gameOver{
-  position: absolute;
-  top: 85vh;
-  left: 45%;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border: 2px solid #2e8973;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background: #2E8973;
+  color: #fff;
   display: none;
 }
 
-.next{
-  padding: 10px 25px;
-  border: none;
-  outline: none;
-  cursor: pointer;  
-  background: #fff;
-  color: #0c7057;
-  border: 1px solid #0c7057;
-  position: absolute;
-  top: 85vh;
-  left: 55%;
-  pointer-events: none;
-}
-
-/* gif */
 .loader{
   position: absolute;
   top: 50%;
@@ -148,98 +181,21 @@ input[type="radio"]{
   display: none;
 }
 
-@media only screen and (max-width:768px){
-  .options{
-    position: absolute;
-    top: 40vh;
-    left: 0;
-  }  
-  
-  .check{
-    position: absolute;
-    top: 70vh;
-    left: 20%;
-  } 
-  
-  .next{
-    position: absolute;
-    top: 70vh;
-    left: 60%;
-  } 
-
-  .gameOver{
-    position: absolute;
-    top: 70vh;
-    left: 42%;
-  } 
-}
-
-@media only screen and (max-width:540px){
-
+@media only screen and (max-width:500px){
   .container{
     width: 90%;
   }
-  .check{
-    padding: 6px 15px;
-    position: absolute;
-    top: 70vh;
-    left: 14%;
-  } 
-  
-  .next{
-    padding: 6px 15px;
-    position: absolute;
-    top: 70vh;
-    left: 55%;
-  } 
-
-  .gameOver{
-    padding: 6px 15px;
-    position: absolute;
-    top: 70vh;
-    left: 40%;
+  .nameDisplay .score{
+    margin-top:10px;
+    margin-right: 25px;
   }
-
-  .tag{
-    position: absolute;
-    bottom: -20px;
-    left: 45%;
-  } 
-}
-
-@media only screen and (max-width:425px){
-  .check{
-    position: absolute;
-    top: 70vh;
-    left: 7%;
-  }
-  .question{
-    height: 25vh;
-  }
-  .options{
-    position: absolute;
-    top: 45vh;
-    left: 0;
-  }  
-  .check{
-    top: 87vh;
-  } 
-  
-  .next{
-    top: 87vh;
-  } 
-
-  .gameOver{
-    top: 87vh;
-    left: 37%;
+  .option label{
+    text-align: center;
   }
 }
 
 @media only screen and (max-width:380px){
-  .container{
-    margin-top: 20px;
-  }
-  .check,.next,.gameOver{
-    top: 90vh;
+  .question{
+    font-size: 22px;
   }
 }
