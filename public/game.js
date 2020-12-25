@@ -64,7 +64,7 @@ const game = data=>{
   <span>${curScore}</span>
   `;
 
-  document.querySelector('p.question').innerText = data[ind].question;
+  document.querySelector('p.question').innerHTML = data[ind].question;
   let tag = `<span class="tag">${ind+1}/15</span>`;
   document.querySelector('p.question').innerHTML += tag;
   let options = [data[ind].correct_answer,data[ind].incorrect_answers[0],data[ind].incorrect_answers[1],data[ind].incorrect_answers[2]];
@@ -131,7 +131,7 @@ document.querySelector('.check').addEventListener('click',(e)=>{
 
       ind++;
 
-      if(ind === 5){
+      if(ind === 15){
         e.target.style.display = "none";
         document.querySelector('.next').style.display = "none";
         document.querySelector('.gameOver').style.display = "block";
