@@ -113,18 +113,7 @@ document.querySelector('.check').addEventListener('click',(e)=>{
       if(yourAnswer === cAnsOption){
         document.getElementsByName('option')[yourAnswer].parentElement.classList.remove('select');
         document.getElementsByName('option')[yourAnswer].parentElement.classList.add('correct');
-        // disable check
-        document.querySelector('.check').style.pointerEvents = "none";
-        // enable next
-        document.querySelector('.next').style.pointerEvents = "auto";
-
-        ind++,curScore++;
-
-        if(curScore === 10){
-          localStorage.setItem('cScore',JSON.stringify(curScore));
-          window.location.href = 'playAgain.html';
-        }
-
+        curScore++
       }else{
         // For your wrong Answer
         document.getElementsByName('option')[yourAnswer].parentElement.classList.remove('select');
@@ -133,16 +122,20 @@ document.querySelector('.check').addEventListener('click',(e)=>{
         // For the correct Answer
         document.getElementsByName('option')[cAnsOption].parentElement.classList.remove('select');
         document.getElementsByName('option')[cAnsOption].parentElement.classList.add('correct');
+      }
 
-        // storing player's score
-        localStorage.setItem('cScore',JSON.stringify(curScore));
+      // disable check
+      document.querySelector('.check').style.pointerEvents = "none";
+      // enable next
+      document.querySelector('.next').style.pointerEvents = "auto";
 
-        // disable check and next 
-        document.querySelector('.check').style.display = "none";
+      ind++;
+
+      if(ind === 5){
+        e.target.style.display = "none";
         document.querySelector('.next').style.display = "none";
-
-        // enable gameOver
         document.querySelector('.gameOver').style.display = "block";
+        localStorage.setItem('cScore',JSON.stringify(curScore));
       }
 
       // disable all radio button after check
@@ -169,12 +162,14 @@ document.querySelector('.next').addEventListener('click',(e)=>{
   game(qns);
 })
 
+
+// below all are fetching part
 const getToken = ()=>{
   fetch('https://opentdb.com/api_token.php?command=request')
     .then(res => res.json())
     .then(data => {
       localStorage.setItem('token',JSON.stringify(data.token));
-      fetch(`https://opentdb.com/api.php?amount=25&difficulty=easy&type=multiple&token=${data.token}`)
+      fetch(`https://opentdb.com/api.php?amount=15&difficulty=easy&type=multiple&token=${data.token}`)
       .then(res =>  res.json())
       .then(data => {
         qns = data.results;
@@ -189,7 +184,7 @@ const call = ()=>{
     getToken();
   }else{
     let token = JSON.parse(localStorage.getItem('token'));
-    fetch(`https://opentdb.com/api.php?amount=25&difficulty=easy&type=multiple&token=${token}`)
+    fetch(`https://opentdb.com/api.php?amount=15&difficulty=easy&type=multiple&token=${token}`)
     .then(res =>  res.json())
     .then(data => {
       if(data.results.length){
