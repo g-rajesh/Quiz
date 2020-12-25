@@ -21,6 +21,23 @@
 
   <script>
 
+    document.querySelector('#name').addEventListener('keyup',(e)=>{
+
+      let name = document.querySelector('#name');
+
+      if(!(name.value === '')){
+        document.querySelector('.display').innerHTML = `
+        <h2>${name.value}, click the play button to start the game</h2>
+        `;
+      }else{
+        document.querySelector('.display').innerHTML = `
+        <h2>______, click the play button to start!</h2>
+        `;
+      }
+
+      e.preventDefault();
+    })
+
     document.querySelector('#name').addEventListener('focusout',(e)=>{
 
       let name = document.querySelector('#name');
@@ -31,9 +48,6 @@
         localStorage.setItem('name',JSON.stringify(name.value));
         localStorage.setItem('cScore',JSON.stringify(score));
         localStorage.setItem('hScore',JSON.stringify(score));
-        document.querySelector('.display').innerHTML = `
-        <h2>${name.value}, click the play button to start the game</h2>
-        `;
         document.querySelector('.next').style.pointerEvents = "auto";
       }
 
