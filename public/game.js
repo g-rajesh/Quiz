@@ -174,7 +174,7 @@ const getToken = ()=>{
     .then(res => res.json())
     .then(data => {
       localStorage.setItem('token',JSON.stringify(data.token));
-      fetch(`https://opentdb.com/api.php?amount=25&difficulty=easy&type=multiple&token=${data.token}`)
+      fetch(`https://opentdb.com/api.php?amount=25&category=21&difficulty=easy&type=multiple&token=${data.token}`)
       .then(res =>  res.json())
       .then(data => {
         qns = data.results;
@@ -189,7 +189,7 @@ const call = ()=>{
     getToken();
   }else{
     let token = JSON.parse(localStorage.getItem('token'));
-    fetch(`https://opentdb.com/api.php?amount=25&difficulty=easy&type=multiple&token=${token}`)
+    fetch(`https://opentdb.com/api.php?amount=25&category=21&difficulty=easy&type=multiple&token=${token}`)
     .then(res =>  res.json())
     .then(data => {
       if(data.results.length){
