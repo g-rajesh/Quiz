@@ -6,9 +6,10 @@
 }
 
 body{
-  background: #2E8973;
   font-family: 'Stylish','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #2E8973;
 }
+
 
 .container{
   display: flex;
