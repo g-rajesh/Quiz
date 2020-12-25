@@ -65,7 +65,7 @@ const game = data=>{
   `;
 
   document.querySelector('p.question').innerText = data[ind].question;
-  let tag = `<span class="tag">${ind+1}/25</span>`;
+  let tag = `<span class="tag">${ind+1}/15</span>`;
   document.querySelector('p.question').innerHTML += tag;
   let options = [data[ind].correct_answer,data[ind].incorrect_answers[0],data[ind].incorrect_answers[1],data[ind].incorrect_answers[2]];
 
